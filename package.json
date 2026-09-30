@@ -1,0 +1,33 @@
+{
+  "name": "chronos",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "docker-compose up -d && concurrently \"npm run dev:api\" \"npm run dev:worker\" \"npm run dev:scheduler\"",
+    "dev:api": "npm run dev --workspace=packages/api",
+    "dev:worker": "npm run dev --workspace=packages/worker",
+    "dev:scheduler": "npm run dev --workspace=packages/scheduler",
+    "build": "npm run build --workspaces",
+    "build:core": "npm run build --workspace=packages/core",
+    "migrate": "npm run migrate --workspace=packages/core",
+    "test": "npm run test --workspaces --if-present",
+    "test:watch": "npm run test:watch --workspaces --if-present",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
