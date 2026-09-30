@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues live as markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Issues live in GitHub Issues (repo: anish-X/chronos_with_ai). Uses `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
