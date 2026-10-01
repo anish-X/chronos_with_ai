@@ -1,4 +1,5 @@
 import { Kysely, PostgresDialect } from 'kysely';
+import type { Insertable, Updateable } from 'kysely';
 import { Pool } from 'pg';
 
 export interface Database {
@@ -57,6 +58,15 @@ export interface TaskTable {
   output_schema: Record<string, unknown>;
   created_at: Date;
 }
+
+export type ScheduleInsert = Insertable<ScheduleTable>;
+export type ScheduleUpdate = Updateable<ScheduleTable>;
+export type JobInsert = Insertable<JobTable>;
+export type JobUpdate = Updateable<JobTable>;
+export type RunInsert = Insertable<RunTable>;
+export type RunUpdate = Updateable<RunTable>;
+export type TaskInsert = Insertable<TaskTable>;
+export type TaskUpdate = Updateable<TaskTable>;
 
 export function createDatabase(): Kysely<Database> {
   const databaseUrl = process.env.DATABASE_URL || 'postgresql://chronos:chronos@localhost:5433/chronos';
