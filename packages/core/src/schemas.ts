@@ -35,6 +35,7 @@ export const jobSchema = z.object({
   claimedAt: z.date().nullable(),
   startedAt: z.date().nullable(),
   finishedAt: z.date().nullable(),
+  workerId: z.string().nullable(),
 });
 
 export const createJobSchema = jobSchema.omit({
