@@ -32,6 +32,7 @@ export interface Job {
   claimedAt: Date | null;
   startedAt: Date | null;
   finishedAt: Date | null;
+  workerId: string | null;
 }
 
 export interface Run {

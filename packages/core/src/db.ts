@@ -38,6 +38,7 @@ export interface JobTable {
   claimed_at: Date | null;
   started_at: Date | null;
   finished_at: Date | null;
+  worker_id: string | null;
 }
 
 export interface RunTable {
